@@ -82,6 +82,6 @@ require("lazy").setup({
 	{'tpope/vim-fugitive'},
 	{'jose-elias-alvarez/null-ls.nvim'},
 	{'MunifTanjim/prettier.nvim'},
-
+    {'ThePrimeagen/vim-be-good'},
 })
 
