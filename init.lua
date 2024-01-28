@@ -89,6 +89,5 @@ require("lazy").setup({
 	{'jose-elias-alvarez/null-ls.nvim'},
 	{'MunifTanjim/prettier.nvim'},
 
-
 })
 
