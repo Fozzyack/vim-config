@@ -84,6 +84,9 @@ require("lazy").setup({
 	{'williamboman/mason-lspconfig.nvim'},
 	{"zbirenbaum/copilot.lua"},
 	{'tpope/vim-fugitive'},
+	{'jose-elias-alvarez/null-ls.nvim'},
+	{'MunifTanjim/prettier.nvim'},
+
 
 })
 
