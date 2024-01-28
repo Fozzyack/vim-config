@@ -13,6 +13,6 @@ vim.opt.expandtab = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.updatetime = 50
