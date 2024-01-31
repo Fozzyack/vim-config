@@ -15,14 +15,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{
-		'kyazdani42/blue-moon',
-		config = function()
-			vim.cmd([[colorscheme blue-moon]])
-            vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-            vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-		end
-	},
+    {"rose-pine/neovim"},
+    {"sainnhe/everforest"},
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		-- or                              , branch = '0.1.x',
