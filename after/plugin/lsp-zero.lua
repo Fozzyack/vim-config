@@ -6,7 +6,7 @@ cmp.setup({
     mapping = {
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<C-u>'] = cmp_action.toggle_completion(),
+        ['<C-u>'] = cmp.mapping.confirm({select = true})
     }
 })
 lsp_zero.on_attach(function(client, bufnr)
