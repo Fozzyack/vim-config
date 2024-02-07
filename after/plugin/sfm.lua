@@ -14,6 +14,7 @@ function AutoStartSFM()
     vim.cmd("SFMToggle")
 end
 
-AutoStartSFM()
+-- Uncomment the next line to auto start sfm
+-- AutoStartSFM()
 
 
