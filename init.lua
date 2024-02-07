@@ -15,6 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
     {"rose-pine/neovim"},
     {"sainnhe/everforest"},
 	{
@@ -83,5 +84,11 @@ require("lazy").setup({
 	{'jose-elias-alvarez/null-ls.nvim'},
 	{'MunifTanjim/prettier.nvim'},
     {'ThePrimeagen/vim-be-good'},
+    {
+        'dinhhuy258/sfm.nvim',
+            config = function()
+                require("sfm").setup()
+              end
+    }
 })
 
