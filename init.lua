@@ -89,6 +89,7 @@ require("lazy").setup({
             config = function()
                 require("sfm").setup()
               end
-    }
+    },
+    { 'echasnovski/mini.nvim', version = false },
 })
 
