@@ -94,10 +94,6 @@ require("lazy").setup({
 	{'MunifTanjim/prettier.nvim'},
     {'ThePrimeagen/vim-be-good'},
     {
-    'windwp/nvim-autopairs',
-        event = "InsertEnter",
-    },
-    {
         'dinhhuy258/sfm.nvim',
             config = function()
                 require("sfm").setup()

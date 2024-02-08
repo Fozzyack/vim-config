@@ -26,36 +26,85 @@ local parse = require("luasnip.util.parser").parse_snippet
 local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
+ls.config.set_config({
+    history = true,
+    updateevents = "TextChanged,TextChangedI",
+    enable_autosnippets = true,
+
+})
 vim.keymap.set({"i", "s"}, "<C-3>", function() ls.jump( 1) end, {silent = true})
 vim.keymap.set({"i", "s"}, "<C-1>", function() ls.jump(-1) end, {silent = true})
 
-local function copy(args)
-	return args[1]
-end
+vim.keymap.set({"i", "s"}, "<C-2>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})
 ls.add_snippets("all", {
-   s("ternary", {
-		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-		i(1, "cond"), t(" ? "), i(2, "then"), t(" : "), i(3, "else")
-	}),
+    s({
+        trig = "rafce",
+        name = "React Arrow Function Component",
+        wordTrig = true,
+    }, fmt([[
+        -!
+        import React from 'react';
 
-    s("rfc", {
-        t({"import React from 'react';", "", ""}),
-        t("const "), i(1, "Component"), t({" = () => {", ""}),
-        t({"\treturn (", ""}),
-        t({"\t\t<div>", ""}),
-        t"\t\t\t", i(2, "Component"), t({"", ""}),
-        t({"\t\t</div>", ""}),
-        t({"\t);", ""}),
-        t({"};", ""}),
-        t({"", ""}),
-        t({"export default "}), i(3), t(";"),
-    }),
+        const -! = () => {
+            return (
+                <div>
+                    -!
+                </div>
+            );
+        };
 
-   s("trycatch", {
-       t({"try {", ""}),
-       t"\t", i(1, "code"), t({"", ""}),
-       t({"} catch (e) {", ""}),
-       t"\t", i(2, "error"), t({"", ""}),
-       t({"}", ""}),
-    }),
+        export default -!;
+    ]], {
+        c(1, { t"'use client';", t"", t"'use strict';", t"'use server';", }),
+        i(2, "Component Name"),
+        i(3, "Content"),
+        rep(2)
+    }, {
+        delimiters = "-!"
+    })),
+    s({
+        trig = 'nrh',
+        name = 'Next route handler',
+        desc = 'Next JS route handler for the app router',
+        wordTrig = true,
+    }, fmt([[
+    export const -! = async (req: Request) => {
+        try {
+            -!
+            -!
+        } catch (error: any) {
+            console.log(error.message)
+            return Response.json(error.message, {status: 500})
+        }
+    }
+    ]], {
+        c(1, { t"GET", t"POST", t"PUT", t"DELETE" }),
+        c(2, { t"const session = await getServerSession(options)", t"" }),
+        i(3, "Code ...")
+    }, {
+        delimiters = "-!"
+    })),
+    s({
+        trig = "dtable",
+        name = "Default SQL Table",
+        wordTrig = true,
+    }, fmt([[
+        CREATE TABLE -! 
+        (
+            id SERIAL,
+            -!,
+
+            PRIMARY KEY (id)
+        );
+    ]], {
+        i(1, "Table Name"),
+        i(2, "Column Name")
+    }, {
+        delimiters = "-!"
+    })),
 })
+

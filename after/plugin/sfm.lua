@@ -10,6 +10,8 @@ require("sfm").setup({
   }
 })
 
+
+vim.keymap.set("n", "<leader>df", "<cmd>SFMToggle<CR>")
 function AutoStartSFM()
     vim.cmd("SFMToggle")
 end
