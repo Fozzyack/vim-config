@@ -106,5 +106,20 @@ ls.add_snippets("all", {
     }, {
         delimiters = "-!"
     })),
+    s({
+        trig = "trycatch",
+        name = "Try Catch Block",
+    }, fmt([[
+        try {
+            -!
+        } catch(error: any) {
+            console.log(error.message)
+            return Response.json(error.message, {status: 500})
+        }
+    ]], {
+        i(1, "code")
+    }, {
+        delimiters =  '-!'
+    })),
 })
 

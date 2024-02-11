@@ -91,12 +91,23 @@ require("lazy").setup({
 	{'williamboman/mason-lspconfig.nvim'},
 	{"zbirenbaum/copilot.lua"},
 	{'tpope/vim-fugitive'},
-	{'MunifTanjim/prettier.nvim'},
+	{
+        'MunifTanjim/prettier.nvim',
+        dependencies = {
+            {'jose-elias-alvarez/null-ls.nvim'},
+            {'neovim/nvim-lspconfig'},
+        },
+    },
     {'ThePrimeagen/vim-be-good'},
     {
-        'dinhhuy258/sfm.nvim',
-            config = function()
-                require("sfm").setup()
-              end
+      'stevearc/oil.nvim',
+      opts = {},
+      -- Optional dependencies
+      dependencies = { "nvim-tree/nvim-web-devicons" },
     },
+    {
+      'nvimdev/dashboard-nvim',
+      event = 'VimEnter',
+      dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    }
 })
