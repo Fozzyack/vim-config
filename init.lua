@@ -109,5 +109,16 @@ require("lazy").setup({
       'nvimdev/dashboard-nvim',
       event = 'VimEnter',
       dependencies = { {'nvim-tree/nvim-web-devicons'}}
-    }
+    },
+    {
+        "epwalsh/obsidian.nvim",
+          version = "*",  -- recommended, use latest release instead of latest commit
+          lazy = true,
+          ft = "markdown",
+          dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+
+      },
+	},
 })

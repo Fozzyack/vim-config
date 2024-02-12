@@ -34,19 +34,10 @@ null_ls.setup({
 
 prettier.setup({
   bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
-  filetypes = {
-    "css",
-    "graphql",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "less",
-    "markdown",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-  },
-})
+  cli_options = {
+      tab_width = 4,
+      use_tabs = true,
+
+  }})
+
 vim.keymap.set('n', '<leader>p', '<cmd>Prettier<cr>')
