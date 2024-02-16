@@ -16,9 +16,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-    {"rose-pine/neovim"},
-    {"sainnhe/everforest"},
-	{
+    { 'cryptomilk/nightcity.nvim', version = false },
+    { 'Abstract-IDE/Abstract-cs'},
+    { 'marko-cerovac/material.nvim'},
+    { 'olivercederborg/poimandres.nvim'},
+    { "xero/miasma.nvim"},
+    { "kyazdani42/blue-moon" },
+    {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		-- or                              , branch = '0.1.x',
 		dependencies = { 'nvim-lua/plenary.nvim' }
@@ -121,4 +125,39 @@ require("lazy").setup({
 
       },
 	},
+    {
+      "karb94/neoscroll.nvim",
+      config = function ()
+        require('neoscroll').setup {}
+      end
+    },
+    {
+        'nvim-tree/nvim-tree.lua',
+        config = function ()
+            require('nvim-tree').setup({
+                auto_reload_on_write = true,
+                update_focused_file = {
+                    enable = true,
+                    update_root = true
+                }
+
+            })
+            vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
+       end
+    },
+    {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- add any options here
+      },
+      dependencies = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        "MunifTanjim/nui.nvim",
+        -- OPTIONAL:
+        --   `nvim-notify` is only needed, if you want to use the notification view.
+        --   If not available, we use `mini` as the fallback
+        "rcarriga/nvim-notify",
+        }
+    }
 })
