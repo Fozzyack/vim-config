@@ -40,4 +40,4 @@ prettier.setup({
 
   }})
 
-vim.keymap.set('n', '<leader>p', '<cmd>Prettier<cr>')
+vim.keymap.set('n', '<leader>pr', '<cmd>Prettier<cr>')
