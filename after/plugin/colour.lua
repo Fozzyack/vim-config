@@ -30,8 +30,10 @@ local current_colour = getColour()
 vim.keymap.set("n", "<leader>r", function ()
     if transparent then
         vim.api.nvim_set_hl(0, "Normal", { bg = current_colour })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = current_colour })
     else
-        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None"})
     end
     transparent = not transparent
 end)
@@ -42,7 +44,8 @@ vim.keymap.set("n", "<leader>n", function ()
     setColour(schemes[index])
     current_colour = getColour()
     if transparent then
-        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None" })
     end
 end)
 
