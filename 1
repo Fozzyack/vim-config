@@ -1,0 +1,34 @@
+ equire('poimandres').setup {}
+require('nightcity').setup({
+    style = 'afterlife',
+    on_highlights = function(groups, c )
+        groups.String = { fg = c.yellow, bg = c.none }
+    end
+})
+
+require('material').setup({
+    disable = {
+        colored_cursor = true,
+    },
+})
+local transparent = true
+vim.keymap.set("n", "<leader>r", function ()
+    if transparent then
+        vim.api.nvim_set_hl(0, "Normal", { bg = nil })
+    else
+        vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
+    end
+    transparent = not transparent
+    print(transparent)
+end)
+
+function setColour(colour) 
+    colour = colour or 'nightcity'
+    vim.g.material_style = 'deep ocean'
+    vim.cmd.colorscheme(colour)
+end
+
+
+setColour()
+
+
