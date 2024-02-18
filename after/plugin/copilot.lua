@@ -11,7 +11,7 @@ require('copilot').setup({
 		},
 		layout = {
 			position = "right", -- | top | left | right
-			ratio = 0.4
+			ratio = 0.3
 		},
 	},
 	suggestion = {
@@ -19,11 +19,11 @@ require('copilot').setup({
 		auto_trigger = false,
 		debounce = 75,
 		keymap = {
-			accept = "<M-l>",
+			accept = "<M-1>",
 			accept_word = false,
 			accept_line = false,
-			next = "<M-]>",
-			prev = "<M-[>",
+			next = "<M-2>",
+			prev = "<M-3>",
 			dismiss = "<C-]>",
 		},
 	},

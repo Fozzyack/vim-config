@@ -14,9 +14,25 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- All Packages Here!
 require("lazy").setup({
 
     { 'cryptomilk/nightcity.nvim', version = false },
+    { 'Everblush/nvim', name = 'everblush' },
     { 'Abstract-IDE/Abstract-cs'},
     { 'marko-cerovac/material.nvim'},
     { 'olivercederborg/poimandres.nvim'},
@@ -29,40 +45,10 @@ require("lazy").setup({
 	},
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	{'ThePrimeagen/harpoon'},
-	{
-		"sontungexpt/sttusline",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		event = { "BufEnter" },
-		config = function(_, opts)
-			require("sttusline").setup {
-
-				statusline_color = "StatusLine",
-				laststatus = 3,
-				disabled = {
-					filetypes = {
-					},
-					buftypes = {
-					},
-				},
-				components = {
-					"mode",
-					"filename",
-					"git-branch",
-					"git-diff",
-					"%=",
-					"diagnostics",
-					"lsps-formatters",
-					"copilot",
-					"indent",
-					"encoding",
-					"pos-cursor",
-					"pos-cursor-progress",
-				},
-			}
-		end,
-	},
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v3.x',
@@ -128,7 +114,7 @@ require("lazy").setup({
     {
       "karb94/neoscroll.nvim",
       config = function ()
-        require('neoscroll').setup {}
+        -- require('neoscroll').setup {} -- Comment / uncomment to enable / disable
       end
     },
     {
@@ -144,6 +130,12 @@ require("lazy").setup({
             })
             vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
        end
+    },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
     },
     {
      "folke/noice.nvim",

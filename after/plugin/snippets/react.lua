@@ -44,7 +44,7 @@ ls.add_snippets("all", {
 
         export default -!;
     ]], {
-        c(1, { t"'use client';", t"", t"'use strict';", t"'use server';", }),
+        c(1, {  t"", t"'use client';", t"'use strict';", t"'use server';", }),
         i(2, "Component Name"),
         i(3, "Content"),
         rep(2)
@@ -60,7 +60,6 @@ ls.add_snippets("all", {
     export const -! = async (req: Request) => {
         try {
             -!
-            -!
         } catch (error: any) {
             console.log(error.message)
             return Response.json(error.message, {status: 500})
@@ -68,7 +67,6 @@ ls.add_snippets("all", {
     }
     ]], {
         c(1, { t"GET", t"POST", t"PUT", t"DELETE" }),
-        c(2, { t"const session = await getServerSession(options)", t"" }),
         i(3, "Code ...")
     }, {
         delimiters = "-!"
@@ -98,8 +96,7 @@ ls.add_snippets("all", {
         try {
             -!
         } catch(error: any) {
-            console.log(error.message)
-            return Response.json(error.message, {status: 500})
+            console.error(error.message)
         }
     ]], {
         i(1, "code")

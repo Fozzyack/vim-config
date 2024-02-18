@@ -13,7 +13,7 @@ vim.opt.expandtab = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true -- Set to true if you want to wrap lines 
 vim.opt.scrolloff = 10
 vim.opt.updatetime = 50
 vim.opt.signcolumn = 'yes'
