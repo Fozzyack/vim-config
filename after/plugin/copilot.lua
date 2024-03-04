@@ -16,7 +16,7 @@ require('copilot').setup({
 	},
 	suggestion = {
 		enabled = true,
-		auto_trigger = false,
+		auto_trigger = true,
 		debounce = 75,
 		keymap = {
 			accept = "<M-1>",
@@ -41,3 +41,26 @@ require('copilot').setup({
 	copilot_node_command = 'node', -- Node.js version must be > 18.x
 	server_opts_overrides = {},
 })
+
+vim.cmd("Copilot disable")
+local enabled = false
+vim.keymap.set("n", "<leader>l", function()
+    if enabled then
+        vim.cmd("Copilot disable")
+    else
+        vim.cmd("Copilot enable")
+    end
+    enabled = not enabled
+end)
+
+
+
+
+
+
+
+
+
+
+
+
