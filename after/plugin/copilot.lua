@@ -47,8 +47,10 @@ local enabled = false
 vim.keymap.set("n", "<leader>l", function()
     if enabled then
         vim.cmd("Copilot disable")
+        print("Copilot - DISABLED")
     else
         vim.cmd("Copilot enable")
+        print("Copilot - ENABLED")
     end
     enabled = not enabled
 end)
