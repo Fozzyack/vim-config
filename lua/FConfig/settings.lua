@@ -17,3 +17,4 @@ vim.opt.wrap = true -- Set to true if you want to wrap lines
 vim.opt.scrolloff = 10
 vim.opt.updatetime = 50
 vim.opt.signcolumn = 'yes'
+vim.cmd.language("en_AU.utf8")

@@ -87,17 +87,6 @@ require("lazy").setup({
       dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
     {
-        "epwalsh/obsidian.nvim",
-          version = "*",  -- recommended, use latest release instead of latest commit
-          lazy = true,
-          ft = "markdown",
-          dependencies = {
-            -- Required.
-            "nvim-lua/plenary.nvim",
-
-      },
-	},
-    {
       "karb94/neoscroll.nvim",
       config = function ()
          require('neoscroll').setup {} -- Comment / uncomment to enable / disable
@@ -124,18 +113,41 @@ require("lazy").setup({
       opts = {},
     },
     {
-     "folke/noice.nvim",
-     event = "VeryLazy",
-     opts = {
-       -- add any options here
-     },
-     dependencies = {
-       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-       "MunifTanjim/nui.nvim",
-       -- OPTIONAL:
-       --   `nvim-notify` is only needed, if you want to use the notification view.
-       --   If not available, we use `mini` as the fallback
-       "rcarriga/nvim-notify",
-       }
-   }, 
+        "ellisonleao/glow.nvim", 
+        config = true, 
+        cmd = "Glow"
+    },
+    {'h-hg/fcitx.nvim'},
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+--    {
+--     "folke/noice.nvim",
+--     event = "VeryLazy",
+--     opts = {
+--       -- add any options here
+--     },
+--     dependencies = {
+--       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+--       "MunifTanjim/nui.nvim",
+--       -- OPTIONAL:
+--       --   `nvim-notify` is only needed, if you want to use the notification view.
+--       --   If not available, we use `mini` as the fallback
+--       "rcarriga/nvim-notify",
+--       }
+--   }, 
+--    {
+--        "epwalsh/obsidian.nvim",
+--          version = "*",  -- recommended, use latest release instead of latest commit
+--          lazy = true,
+--          ft = "markdown",
+--          dependencies = {
+--            -- Required.
+--            "nvim-lua/plenary.nvim",
+--
+--      },
+--	},
 })
